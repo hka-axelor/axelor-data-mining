@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+  <menuitem name="dm-root-data-mining" title="Data Analysis" order="-106"
+    icon="fa-line-chart" icon-background="#e0a83c" if="__config__.app.isApp('base')"/>
+
+  <menuitem title="Analyse Invoice" name="dm-root-data-mining-analyse-invoice"
+    parent="dm-root-data-mining" order="5" action="dm.root.data.mining.analyse.invoice"/>
+
+  <action-view name="dm.root.data.mining.analyse.invoice" title="Invoice Analysis"
+    model="com.axelor.apps.data.mining.db.InvoiceAnalysis">
+    <view type="grid" name="invoice-analysis-grid"/>
+    <view type="form" name="invoice-analysis-form"/>
+  </action-view>
+
+</object-views>

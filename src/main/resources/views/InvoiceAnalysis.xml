@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+
+  <grid model="com.axelor.apps.data.mining.db.InvoiceAnalysis" title="Analysed invoices"
+    name="invoice-analysis-grid">
+    <field name="name"/>
+    <field name="minSupport"/>
+    <field name="minConfidence"/>
+  </grid>
+
+  <form model="com.axelor.apps.data.mining.db.InvoiceAnalysis" title="Analyse invoice"
+    name="invoice-analysis-form">
+    <panel name="mainPanel">
+      <field name="name"/>
+      <field name="invoiceMetaFile" title="Input file" type="many-to-one"
+        target="com.axelor.meta.db.MetaFile" widget="binary-link" help="Input csv file only"/>
+      <field name="minSupport"/>
+      <field name="minConfidence"/>
+
+      <button name="analysisBtn" title="Run analysis" readonlyIf="invoiceMetaFile == null"
+        onClick="save,action-invoice-analysis-method-run-analysis,save"/>
+
+      <field name="analysisResult" readonly="true" colSpan="12"/>
+    </panel>
+  </form>
+
+  <action-method name="action-invoice-analysis-method-run-analysis">
+    <call class="com.axelor.apps.data.mining.web.InvoiceAnalysisController"
+      method="runAnalysis"/>
+  </action-method>
+
+</object-views>

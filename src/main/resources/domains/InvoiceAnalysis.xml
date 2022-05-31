@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+
+  <module name="data-mining" package="com.axelor.apps.data.mining.db"/>
+
+  <entity name="InvoiceAnalysis" lang="java" cacheable="true">
+    <string name="name" title="Name"/>
+    <decimal name="minSupport" title="Min. support" min="0" max="1" scale="3" precision="20"/>
+    <decimal name="minConfidence" title="Min. confidence" min="0" max="1" scale="3"
+      precision="20"/>
+    <string name="analysisResult" title="Analysis result" large="true"/>
+  </entity>
+
+</domain-models>
