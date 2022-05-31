@@ -1,0 +1,10 @@
+apply plugin: "com.axelor.app-module"
+
+axelor {
+	title "Axelor :: DMBI"
+	description "Axelor Data Mining"
+}
+
+dependencies {
+	api project(":modules:axelor-supplychain")
+}
