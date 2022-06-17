@@ -21,10 +21,8 @@ records = []
 for i in range(0, store_data.shape[0]):
     records.append([str(store_data.values[i,j]) for j in range(0, store_data.shape[1])])
 
-transaction = np.array(records)
-
 te = TransactionEncoder()
-te_ary = te.fit(transaction).transform(transaction)
+te_ary = te.fit(records).transform(records)
 
 df = pd.DataFrame(te_ary)
 
